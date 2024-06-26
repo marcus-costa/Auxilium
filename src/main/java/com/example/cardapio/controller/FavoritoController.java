@@ -24,7 +24,7 @@ public class FavoritoController {
 	@Autowired
     private FavoritoRepository repository;
 	
-	  @CrossOrigin(origins = "*", allowedHeaders = "*")
+	  //@CrossOrigin(origins = "*", allowedHeaders = "*")
 	    @PostMapping
 	    
 	    public void saveFavorito(@RequestBody FavoritoRequestDTO data){
@@ -39,7 +39,7 @@ public class FavoritoController {
 			Favorito favoritoData = new Favorito(data);
 			repository.save(favoritoData);
 		}
-	        @CrossOrigin(origins = "*", allowedHeaders = "*")
+	        //@CrossOrigin(origins = "*", allowedHeaders = "*")
 	        @GetMapping
 	        public List<FavoritoResponseDTO> getAll(){
 	            List<FavoritoResponseDTO> favoritoList = repository.findAll().stream().map(FavoritoResponseDTO::new).toList();
