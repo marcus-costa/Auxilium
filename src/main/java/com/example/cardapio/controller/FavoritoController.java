@@ -47,4 +47,15 @@ public class FavoritoController {
 	        
 	    }
 
+		// Endpoint para deletar um favorito pela URL
+		@DeleteMapping("/url")
+		public ResponseEntity<Void> deleteFavoritoByUrl(@RequestParam String url) {
+			Favorito favorito = repository.findByUrl(url);
+			if (favorito != null) {
+				repository.delete(favorito);
+				return ResponseEntity.noContent().build();
+			} else {
+				return ResponseEntity.notFound().build();
+			}
+		}
 }
